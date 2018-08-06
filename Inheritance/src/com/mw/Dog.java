@@ -23,6 +23,22 @@ public class Dog extends Animal {
 
     @Override
     public void eat() {
-        System.out.println(super.getName()+" is chewing");
+        System.out.println(super.getName() + " is chewing");
+    }
+
+    public void walk() {
+        System.out.println("Dog is walking.");
+        move(5);
+    }
+
+    @Override
+    public void move(int speed) {
+        System.out.println("Overriden move() method from Dog class called.");
+        super.move(speed);
+    }
+
+    public void run() {
+        System.out.println("Dog is running.");
+        super.move(10); //TODO: delete "super."
     }
 }
