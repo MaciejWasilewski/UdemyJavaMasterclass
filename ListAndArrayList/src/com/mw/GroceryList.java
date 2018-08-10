@@ -11,7 +11,7 @@ public class GroceryList {
     }
 
     public void printGroceryList() {
-        System.out.println("Size of list: "+groceryList.size());
+        System.out.println("Size of list: " + groceryList.size());
         for (int i = 0; i < groceryList.size(); i++) {
             System.out.println((i + 1) + ". " + groceryList.get(i));
         }
@@ -26,5 +26,13 @@ public class GroceryList {
         String theItem = groceryList.get(pos);
         groceryList.remove(pos);
         System.out.println("Position " + theItem + " removed.");
+    }
+
+    public String findGroceryItem(String searchItem) {
+        int pos = groceryList.indexOf(searchItem);
+        if (pos >= 0) {
+            return groceryList.get(pos);
+        }
+        return null;
     }
 }
