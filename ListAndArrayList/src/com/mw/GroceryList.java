@@ -17,22 +17,32 @@ public class GroceryList {
         }
     }
 
-    public void modifyGroceryItem(int pos, String newItem) {
+    public void modifyGroceryItem(String current,String newItem) {
+        int pos = findGroceryItem(current);
+        if (pos >= 0) {
+            modifyGroceryItem(pos, newItem);
+        }
+    }
+
+    private void modifyGroceryItem(int pos, String newItem) {
         groceryList.set(pos, newItem);
         System.out.println("Item " + pos + " has been modified.");
     }
+    public void removeGroceryItem(String item)
+    {
+        int pos = findGroceryItem(item);
+        if (pos >= 0) {
+            removeGroceryItem(pos);
+        }
+    }
 
-    public void removeGroceryItem(int pos) {
+    private void removeGroceryItem(int pos) {
         String theItem = groceryList.get(pos);
         groceryList.remove(pos);
         System.out.println("Position " + theItem + " removed.");
     }
 
-    public String findGroceryItem(String searchItem) {
-        int pos = groceryList.indexOf(searchItem);
-        if (pos >= 0) {
-            return groceryList.get(pos);
-        }
-        return null;
+    public int findGroceryItem(String searchItem) {
+        return groceryList.indexOf(searchItem);
     }
 }
