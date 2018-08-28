@@ -43,4 +43,18 @@ public class Customer {
     public int hashCode() {
         return Objects.hash(name);
     }
+
+    @Override
+    public String toString() {
+        return "Customer Name:\t"+name;
+    }
+    public String transactionsToString()
+    {
+        String temp="";
+        for (int i=0; i<transactions.size();i++)
+        {
+            temp+="\t"+transactions.get(i)+"\n";
+        }
+        return temp;
+    }
 }
