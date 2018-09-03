@@ -1,6 +1,5 @@
 package com.mw;
 
-import java.util.List;
 
 public class LList {
     private ListItem current;
@@ -106,10 +105,10 @@ public class LList {
     boolean hasNext() {
         if (current != null) {
             return !(current.getNext() == null);
-        } else if (head != null) {
-            return true;
+        } else {
+            return (head != null);
         }
-        return false;
+
     }
 
     void reset() {
