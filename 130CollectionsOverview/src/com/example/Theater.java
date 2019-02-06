@@ -21,7 +21,14 @@ public class Theater {
     public String getTheaterName() {
         return theaterName;
     }
-
+public void printList()
+{
+    for(Seat seat: seats)
+    {
+        System.out.print(" "+seat.getSeatNumber());
+    }
+    System.out.println("\n\n");
+}
     public boolean reserveSeat(String seatNumber) {
         Seat requestSeat = new Seat(seatNumber);
         int foundSeat=Collections.binarySearch(seats,requestSeat,null);

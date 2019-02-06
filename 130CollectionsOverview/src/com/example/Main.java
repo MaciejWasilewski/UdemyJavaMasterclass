@@ -1,5 +1,9 @@
 package com.example;
 
+import javafx.print.Collation;
+
+import java.util.Collections;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -15,5 +19,6 @@ public class Main {
         } else {
             System.out.println("Seat is taken.");
         }
+        theater.printList();
     }
 }
