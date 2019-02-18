@@ -1,29 +1,42 @@
 package com.example;
 
+
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public final class HeavenlyBody{
+enum BodyType {
+    PLANET,
+    MOON,
+}
+
+public abstract class HeavenlyBody {
     private final String name;
     private final double orbitalPeriod;
     private final Set<HeavenlyBody> satellites;
+//    private final BodyType type;
 
     public HeavenlyBody(String name, double orbitalPeriod) {
         this.name = name;
         this.orbitalPeriod = orbitalPeriod;
-        satellites=new HashSet<>();
+//        this.type = type;
+        satellites = new HashSet<>();
+
     }
 
     public String getName() {
         return name;
     }
 
+//    public BodyType getType() {
+//        return type;
+//    }
+
     public double getOrbitalPeriod() {
         return orbitalPeriod;
     }
-    public boolean addMoon(HeavenlyBody moon)
-    {
+
+    public boolean addMoon(HeavenlyBody moon) {
         return this.satellites.add(moon);
     }
 
@@ -37,12 +50,24 @@ public final class HeavenlyBody{
         if (this == o) return true;
         if (!(o instanceof HeavenlyBody)) return false;
         HeavenlyBody that = (HeavenlyBody) o;
-        return Double.compare(that.getOrbitalPeriod(), getOrbitalPeriod()) == 0 &&
-                Objects.equals(getName(), that.getName());
+        return Objects.equals(getName(), that.getName()) && (this.getClass() == o.getClass());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getOrbitalPeriod());
+        return staticHashCode(this.name, this.getClass().toString());
+    }
+    public static int staticHashCode(String name, String classString)
+    {
+        return Objects.hash(name, classString);
+    }
+
+    @Override
+    public String toString() {
+        return "HeavenlyBody{" +
+                "name='" + name + '\'' +
+                ", orbitalPeriod=" + orbitalPeriod +
+                ", class="+getClass().toString()+
+        '}';
     }
 }
