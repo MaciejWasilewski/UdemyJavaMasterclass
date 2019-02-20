@@ -22,6 +22,16 @@ public class Basket {
         }
         return 0;
     }
+    public int checkout(StockItem item)
+    {
+        if(item!=null && list.containsKey(item))
+        {
+            System.out.println(item.getName()+" checked out from basket.");
+            list.remove(item);
+            return 0;
+        }
+        return -1;
+    }
 
     public Map<StockItem, Integer> Items() {
         return Collections.unmodifiableMap(list);

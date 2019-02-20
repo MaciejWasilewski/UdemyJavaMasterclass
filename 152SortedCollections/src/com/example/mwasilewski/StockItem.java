@@ -6,17 +6,48 @@ public class StockItem implements Comparable<StockItem> {
     private final String name;
     private double price;
     private int quantityStock;
+    private int reserved;
 
     public StockItem(String name, double price) {
-        this.name = name;
-        this.price = price;
-        this.quantityStock = 0;
+        this(name, price,0);
     }
 
     public StockItem(String name, double price, int quantityStock) {
         this.name = name;
         this.price = price;
         this.quantityStock = quantityStock;
+        this.reserved=0;
+    }
+
+    public int getReserved() {
+        return reserved;
+    }
+
+    public int reserve(int quantity)
+    {
+        if(quantity<=0||this.reserved+quantity>this.quantityStock)
+        {
+            System.out.println("Couldn't reserve "+quantity+" items.");
+            return -1;
+        }
+        else
+        {
+            this.reserved+=quantity;
+            return this.reserved;
+        }
+    }
+    public int unreserve(int quantity)
+    {
+        if(quantity<=0||this.reserved-quantity<0)
+        {
+            System.out.println("Couldn't unreserve "+quantity+" items.");
+            return this.reserved;
+        }
+        else
+        {
+            this.reserved-=quantity;
+            return this.reserved;
+        }
     }
 
     public String getName() {

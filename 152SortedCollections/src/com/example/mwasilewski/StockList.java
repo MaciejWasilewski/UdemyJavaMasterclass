@@ -41,11 +41,39 @@ public class StockList {
      */
     public int sellStock(String item, int quantity) {
         StockItem inStock = list.get(item);
-        if (inStock != null && inStock.quantityInStock() >= quantity && quantity > 0) {
+        if (inStock != null && inStock.getReserved() >= quantity && quantity > 0) {
             inStock.adjustStock(-quantity);
             return quantity;
         }
         return 0;
+    }
+    public int sellStock(String item){
+        StockItem inStock = list.get(item);
+        if (inStock != null) {
+            int quantity=inStock.getReserved();
+            inStock.adjustStock(-inStock.getReserved());
+            inStock.unreserve(inStock.getReserved());
+            return quantity;
+        }
+        return 0;
+    }
+    public int reserveStock(String item, int quantity)
+    {
+        StockItem inStock = list.get(item);
+        if(inStock!=null)
+        {
+            return inStock.reserve(quantity);
+        }
+        return -1;
+    }
+    public int unreserveStock(String item, int quantity)
+    {
+        StockItem inStock = list.get(item);
+        if(inStock!=null)
+        {
+            return inStock.unreserve(quantity);
+        }
+        return -1;
     }
 
     public StockItem get(String key) {
