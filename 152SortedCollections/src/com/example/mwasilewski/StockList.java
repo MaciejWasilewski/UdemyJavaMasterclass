@@ -1,7 +1,6 @@
 package com.example.mwasilewski;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -22,11 +21,11 @@ public class StockList {
         if (item != null) {
             StockItem inStock = list.getOrDefault(item.getName(), item);
             if (inStock != item) {
-                item.adjustStock(inStock.quantityInStock());
+                item.adjustStock(inStock.availableQuantity());
 
             }
             list.put(item.getName(), item);
-            return item.quantityInStock();
+            return item.availableQuantity();
         }
         return -1;
     }
@@ -88,10 +87,10 @@ public class StockList {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         list.forEach((k, v) -> stringBuilder.append("Item: ").append(k).append("\n\tquantity: ")
-                .append(v.quantityInStock()).append("\n\tvalue: ")
-                .append(String.format("%.2f",v.quantityInStock() * v.getPrice())).append(".\n"));
+                .append(v.availableQuantity()).append("\n\tvalue: ")
+                .append(String.format("%.2f",v.availableQuantity() * v.getPrice())).append(".\n"));
         stringBuilder.append("Total value: ").append(String.format("%.2f",
-                list.values().stream().map(v -> v.getPrice() * v.quantityInStock())
+                list.values().stream().map(v -> v.getPrice() * v.availableQuantity())
                         .reduce(0.0, (a, b) -> a + b)));
         return stringBuilder.toString();
     }

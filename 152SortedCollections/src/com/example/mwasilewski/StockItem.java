@@ -58,8 +58,8 @@ public class StockItem implements Comparable<StockItem> {
         return price;
     }
 
-    public int quantityInStock() {
-        return quantityStock;
+    public int availableQuantity() {
+        return quantityStock-this.reserved;
     }
 
     public void setPrice(double price) {
