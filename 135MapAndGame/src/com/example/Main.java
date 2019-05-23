@@ -48,7 +48,7 @@ public class Main {
             }
             while (true) {
                 if (scanner.hasNext()) {
-                    locCandidate = scanner.next();
+                    locCandidate = scanner.nextLine();
                     if (locCandidate.equals("W") || locCandidate.equals("E") || locCandidate.equals("S") || locCandidate.equals("N") || locCandidate.equals("Q")) {
                         break;
                     } else {
