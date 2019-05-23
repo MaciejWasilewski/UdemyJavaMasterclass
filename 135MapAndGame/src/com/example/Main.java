@@ -31,7 +31,6 @@ public class Main {
         exits.put("W", 2);
         locations.put(5, new Location(5, "In the forest", exits));
 
-
         Map<String, String> abbrev = new HashMap<>();
         abbrev.put("east", "E");
         abbrev.put("e", "E");

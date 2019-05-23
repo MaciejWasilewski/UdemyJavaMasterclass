@@ -1,36 +1,71 @@
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.BorderPane?>
-
 <?import javafx.scene.control.Label?>
-<BorderPane fx:controller="sample.Controller"
-            xmlns:fx="http://javafx.com/fxml">
-    <top>
-        <Label text="This label is in the top position"
-        style="-fx-border-color: red; -fx-border-width: 3; -fx-border-style: dashed"
-        BorderPane.alignment="center"/>
-    </top>
-    <left>
-        <Label text="it is in the left position"
-        BorderPane.alignment="CENTER"/>
-    </left>
-    <bottom>
-        <HBox alignment="bottom_right"
-              style="-fx-border-color: red; -fx-border-width: 3; -fx-border-style: dashed"
-              spacing="50">
-            <padding>
-                <Insets bottom="10"
-                        right="10"/>
-            </padding>
-            <Button text="okay"
-                    prefWidth="90"/>
-            <Button text="Cancel"
-                    prefWidth="90"
-            />
-            <Button text="Help"
-                    prefWidth="90"/>
-        </HBox>
-    </bottom>
-</BorderPane>
+<StackPane
+        fx:controller="sample.Controller"
+        xmlns:fx="http://javafx.com/fxml">
+    <Button text="One"/>
+    <Label text="Two"/>
+</StackPane>
+
+
+        <!--<?import javafx.scene.layout.FlowPane?>-->
+        <!--<?import javafx.scene.control.Button?>-->
+        <!--<FlowPane fx:controller="sample.Controller"-->
+        <!--          xmlns:fx="http://javafx.com/fxml"-->
+        <!--          orientation="VERTICAL">-->
+        <!--    <Button text="One"/>-->
+        <!--    <Button text="2"/>-->
+        <!--    <Button text="3"/>-->
+        <!--    <Button text="4"/>-->
+        <!--    <Button text="5"/>-->
+        <!--    <Button text="6"/>-->
+        <!--    <Button text="7"/>-->
+        <!--    <Button text="8"/>-->
+        <!--    <Button text="9"/>-->
+        <!--    <Button text="10"/>-->
+        <!--</FlowPane>-->
+
+        <!--<?import javafx.scene.layout.HBox?>-->
+        <!--<?import javafx.scene.control.Button?>-->
+        <!--<?import javafx.scene.layout.HBox?>-->
+        <!--<?import javafx.geometry.Insets?>-->
+        <!--<?import javafx.scene.layout.BorderPane?>-->
+
+        <!--<?import javafx.scene.control.Label?>-->
+        <!--<BorderPane fx:controller="sample.Controller"-->
+        <!--            xmlns:fx="http://javafx.com/fxml">-->
+        <!--    <top>-->
+        <!--        <Label text="This label is in the top position"-->
+        <!--        style="-fx-border-color: red; -fx-border-width: 3; -fx-border-style: dashed"-->
+        <!--        BorderPane.alignment="center"/>-->
+        <!--    </top>-->
+        <!--    <left>-->
+        <!--        <Label text="it is in the left position"-->
+        <!--        BorderPane.alignment="CENTER"/>-->
+        <!--    </left>-->
+        <!--    <right>-->
+        <!--        <Label text="it is in the right position"-->
+        <!--               BorderPane.alignment="CENTER"/>-->
+        <!--    </right>-->
+        <!--    <center>-->
+        <!--        <Label text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"/>-->
+        <!--    </center>-->
+        <!--    <bottom>-->
+        <!--        <HBox alignment="bottom_right"-->
+        <!--              style="-fx-border-color: red; -fx-border-width: 3; -fx-border-style: dashed"-->
+        <!--              spacing="50">-->
+        <!--            <padding>-->
+        <!--                <Insets bottom="10"-->
+        <!--                        right="10"/>-->
+        <!--            </padding>-->
+        <!--            <Button text="okay"-->
+        <!--                    prefWidth="90"/>-->
+        <!--            <Button text="Cancel"-->
+        <!--                    prefWidth="90"-->
+        <!--            />-->
+        <!--            <Button text="Help"-->
+        <!--                    prefWidth="90"/>-->
+        <!--        </HBox>-->
+        <!--    </bottom>-->
+        <!--</BorderPane>-->
