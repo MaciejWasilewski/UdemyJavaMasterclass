@@ -27,24 +27,18 @@ public class Controller {
             System.out.println("Hello2! " + nameField.getText());
 
         }
-        Runnable task=new Runnable() {
+        Platform.runLater(new Runnable() {
             @Override
             public void run() {
                 try{
                     Thread.sleep(1000);
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            ourLabel.setText("We did something!");
-                        }
-                    });
-
                 } catch (InterruptedException event){
                     System.out.println(event.toString());
                 }
+                ourLabel.setText("We did something!");
             }
-        };
-        new Thread(task).start();
+        });
+//        new Thread(task).start();
         if(checkBox1.isSelected())
         {
             nameField.clear();
