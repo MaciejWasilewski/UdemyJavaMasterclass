@@ -1,8 +1,6 @@
 package com.mwasilewski.todolist.datamodel;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ToDoItem {
     private String shortDescription;
@@ -39,4 +37,9 @@ public class ToDoItem {
     public void setDeadline(LocalDate deadline) {
         this.deadline = deadline;
     }
+
+//    @Override
+//    public String toString() {
+//        return shortDescription;
+//    }
 }
