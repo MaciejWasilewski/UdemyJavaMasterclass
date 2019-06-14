@@ -4,9 +4,14 @@ import com.mwasilewski.todolist.datamodel.ToDoData;
 import com.mwasilewski.todolist.datamodel.ToDoItem;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.util.Callback;
@@ -14,6 +19,7 @@ import javafx.util.Callback;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 import java.util.Optional;
 
 public class Controller {
@@ -27,8 +33,21 @@ public class Controller {
     private Label deadlineLabel;
     @FXML
     private BorderPane mainBorderPane;
+    @FXML
+    private ContextMenu listItemContextMenu;
 
     public void initialize() {
+        listItemContextMenu = new ContextMenu();
+        MenuItem deleteItemMenu = new MenuItem("Delete");
+        deleteItemMenu.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ToDoItem item = toDoListView.getSelectionModel().getSelectedItem();
+                deleteItem(item);
+            }
+        });
+
+        listItemContextMenu.getItems().addAll(deleteItemMenu);
         //todoItems = new ArrayList<>();
 //        todoItems.add(new ToDoItem("Mail birthday card",
 //                "Buy a 30th birthday card for John", LocalDate.of(2016, Month.APRIL, 25)));
@@ -36,7 +55,8 @@ public class Controller {
 //                "See Dr. Smith", LocalDate.of(2017, Month.APRIL, 25)));
         //todoItems = ToDoData.getInstance().getToDoItems();
         //ToDoData.getInstance().setToDoItems(todoItems);
-        toDoListView.setItems(ToDoData.getInstance().getToDoItems());
+        SortedList<ToDoItem> sortedList=new SortedList<>(ToDoData.getInstance().getToDoItems(), Comparator.comparing(ToDoItem::getDeadline));
+        toDoListView.setItems(sortedList);
 //        populateToDoList(ToDoData.getInstance().getToDoItems());
         toDoListView
                 .getSelectionModel()
@@ -48,11 +68,13 @@ public class Controller {
                                  }
                              }
                 );
+
         toDoListView.getSelectionModel().selectFirst();
         toDoListView.setCellFactory(new Callback<>() {
             @Override
             public ListCell<ToDoItem> call(ListView<ToDoItem> param) {
-                return new ListCell<>() {
+                ListCell<ToDoItem> cell = new ListCell<>() {
+
                     @Override
                     protected void updateItem(ToDoItem item, boolean empty) {
                         super.updateItem(item, empty);
@@ -63,14 +85,23 @@ public class Controller {
                             if (item.getDeadline().equals(LocalDate.now())) {
                                 setTextFill(Color.RED);
                             }
-                            if(item.getDeadline().isBefore(LocalDate.now().plusDays(7))
-                                    && item.getDeadline().isAfter(LocalDate.now()))
-                            {
+                            if (item.getDeadline().isBefore(LocalDate.now().plusDays(7))
+                                    && item.getDeadline().isAfter(LocalDate.now())) {
                                 setTextFill(Color.ORANGE);
                             }
                         }
                     }
                 };
+                cell.emptyProperty().addListener(
+                        (obs, wasEmpty, isNowEmpty) -> {
+                            if (isNowEmpty) {
+                                cell.setContextMenu(null);
+                            } else {
+                                cell.setContextMenu(listItemContextMenu);
+                            }
+                        }
+                );
+                return cell;
             }
         });
 
@@ -96,6 +127,7 @@ public class Controller {
 
         if (result.isPresent() && result.get() == ButtonType.OK) {
             DialogController controller = fxmlLoader.getController();
+            System.out.println(controller);
             controller.processResults();
             //populateToDoList(ToDoData.getInstance().getToDoItems());
             System.out.println("OK pressed");
@@ -117,6 +149,25 @@ public class Controller {
             ToDoItem item = ToDoData.getInstance().getToDoItems().get(toDoListView.getSelectionModel().getSelectedIndices().get(0));
             descriptionArea.appendText(item.getDetails());
             deadlineLabel.setText(item.getDeadline().format(DateTimeFormatter.ofPattern("d-MMMM-y")));
+        }
+    }
+
+    void deleteItem(ToDoItem item) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete ToDo Item");
+        alert.setHeaderText("Delete item " + item.getShortDescription() + "?");
+        alert.setContentText("Are you sure?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            ToDoData.getInstance().deleteItem(item);
+        }
+    }
+
+    public void handleListKeyPressed(KeyEvent keyEvent) {
+        ToDoItem item=toDoListView.getSelectionModel().getSelectedItem();
+        if(item!=null && keyEvent.getCode().equals(KeyCode.DELETE))
+        {
+            ToDoData.getInstance().deleteItem(item);
         }
     }
 }

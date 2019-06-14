@@ -95,4 +95,8 @@ public class ToDoData {
     {
         toDoItems.add(item);
     }
+
+    public boolean deleteItem(ToDoItem item) {
+        return toDoItems.remove(item);
+    }
 }
