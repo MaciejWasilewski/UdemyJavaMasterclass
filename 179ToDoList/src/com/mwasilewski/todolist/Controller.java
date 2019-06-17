@@ -2,11 +2,9 @@ package com.mwasilewski.todolist;
 
 import com.mwasilewski.todolist.datamodel.ToDoData;
 import com.mwasilewski.todolist.datamodel.ToDoItem;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import javafx.application.Platform;
+import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -35,16 +33,16 @@ public class Controller {
     private BorderPane mainBorderPane;
     @FXML
     private ContextMenu listItemContextMenu;
+    @FXML
+    private ToggleButton toggleListFilter;
+    private FilteredList<ToDoItem> filteredList;
 
     public void initialize() {
         listItemContextMenu = new ContextMenu();
         MenuItem deleteItemMenu = new MenuItem("Delete");
-        deleteItemMenu.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                ToDoItem item = toDoListView.getSelectionModel().getSelectedItem();
-                deleteItem(item);
-            }
+        deleteItemMenu.setOnAction(event -> {
+            ToDoItem item = toDoListView.getSelectionModel().getSelectedItem();
+            deleteItem(item);
         });
 
         listItemContextMenu.getItems().addAll(deleteItemMenu);
@@ -55,18 +53,16 @@ public class Controller {
 //                "See Dr. Smith", LocalDate.of(2017, Month.APRIL, 25)));
         //todoItems = ToDoData.getInstance().getToDoItems();
         //ToDoData.getInstance().setToDoItems(todoItems);
-        SortedList<ToDoItem> sortedList=new SortedList<>(ToDoData.getInstance().getToDoItems(), Comparator.comparing(ToDoItem::getDeadline));
+        filteredList=new FilteredList<>(ToDoData.getInstance().getToDoItems(),
+                item->true);
+        SortedList<ToDoItem> sortedList = new SortedList<>(filteredList,
+                Comparator.comparing(ToDoItem::getDeadline));
         toDoListView.setItems(sortedList);
 //        populateToDoList(ToDoData.getInstance().getToDoItems());
         toDoListView
                 .getSelectionModel()
                 .selectedItemProperty()
-                .addListener(new ChangeListener<ToDoItem>() {
-                                 @Override
-                                 public void changed(ObservableValue<? extends ToDoItem> observable, ToDoItem oldValue, ToDoItem newValue) {
-                                     handleClickListView();
-                                 }
-                             }
+                .addListener((observable, oldValue, newValue) -> handleClickListView()
                 );
 
         toDoListView.getSelectionModel().selectFirst();
@@ -146,7 +142,10 @@ public class Controller {
         descriptionArea.clear();
 //        System.out.println("a");
         if (toDoListView.getSelectionModel().getSelectedIndices().size() != 0) {
-            ToDoItem item = ToDoData.getInstance().getToDoItems().get(toDoListView.getSelectionModel().getSelectedIndices().get(0));
+            ToDoItem item = ToDoData
+                    .getInstance()
+                    .getToDoItems()
+                    .get(toDoListView.getSelectionModel().getSelectedIndices().get(0));
             descriptionArea.appendText(item.getDetails());
             deadlineLabel.setText(item.getDeadline().format(DateTimeFormatter.ofPattern("d-MMMM-y")));
         }
@@ -164,10 +163,41 @@ public class Controller {
     }
 
     public void handleListKeyPressed(KeyEvent keyEvent) {
-        ToDoItem item=toDoListView.getSelectionModel().getSelectedItem();
-        if(item!=null && keyEvent.getCode().equals(KeyCode.DELETE))
-        {
+        ToDoItem item = toDoListView.getSelectionModel().getSelectedItem();
+        if (item != null && keyEvent.getCode().equals(KeyCode.DELETE)) {
             ToDoData.getInstance().deleteItem(item);
         }
+    }
+
+    public void handleToogleClicked() {
+        ToDoItem selectedItem=toDoListView.getSelectionModel().getSelectedItem();
+        if(toggleListFilter.isSelected())
+        {
+
+            System.out.println("Selected!");
+            filteredList.setPredicate(item->item.getDeadline().equals(LocalDate.now()));
+            if (!filteredList.contains(selectedItem))
+            {
+                toDoListView.getSelectionModel().selectFirst();
+            }
+            else{
+                toDoListView.getSelectionModel().select(selectedItem);
+            }
+        }
+        else
+        {
+            filteredList.setPredicate(item->true);
+            if (!filteredList.contains(selectedItem))
+            {
+                toDoListView.getSelectionModel().selectFirst();
+            }
+            else{
+                toDoListView.getSelectionModel().select(selectedItem);
+            }
+        }
+    }
+
+    public void handleExit() {
+        Platform.exit();
     }
 }

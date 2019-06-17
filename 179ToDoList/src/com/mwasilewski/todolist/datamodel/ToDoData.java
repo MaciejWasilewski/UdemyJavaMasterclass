@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class ToDoData {
@@ -44,7 +45,7 @@ public class ToDoData {
                     addAll(
                             br.lines()
                                     .map(a -> a.split("\t"))
-                                    .map(a -> new ToDoItem(a[0], a[1], LocalDate.parse(a[2], formatter)))
+                                    .map(a -> new ToDoItem(a[0], a[1], LocalDate.parse(a[2], formatter.withLocale(Locale.ENGLISH))))
                                     .collect(Collectors.toCollection(ArrayList::new)));
 //            while ((input = br.readLine()) != null) {
 //                String[] itemPieces = input.split("\t");
@@ -83,7 +84,7 @@ public class ToDoData {
                 List<String> l=new ArrayList<String>();
                 l.add(i.getShortDescription());
                 l.add(i.getDetails());
-                l.add(i.getDeadline().format(formatter));
+                l.add(i.getDeadline().format(formatter.withLocale(Locale.ENGLISH)));
                 bw.write(String.join("\t", l));
                 bw.newLine();
             }
