@@ -12,13 +12,13 @@
     <content>
         <GridPane vgap="10" hgap="10">
             <Label text="First Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-            <TextArea fx:id="fName" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <TextField fx:id="fName" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
             <Label text="Last Name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-            <TextArea fx:id="lName" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <TextField fx:id="lName" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
             <Label text="Phone Number:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-            <TextArea fx:id="phone" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            <TextField fx:id="phone" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
             <Label text="Notes:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-            <TextArea fx:id="notes" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            <TextField fx:id="notes" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
         </GridPane>
     </content>
 

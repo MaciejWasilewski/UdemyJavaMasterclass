@@ -1,17 +1,17 @@
 package sample;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 public class EditContactController implements DialogController{
     @FXML
-    private TextArea fName;
+    private TextField fName;
     @FXML
-    private TextArea lName;
+    private TextField lName;
     @FXML
-    private TextArea phone;
+    private TextField phone;
     @FXML
-    private TextArea notes;
+    private TextField notes;
     private Contact contact;
 
     public void initializeTexts(Contact c)
