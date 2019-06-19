@@ -1,27 +1,9 @@
 <?xml version="1.0" ?>
 <contacts>
 <contact>
-	<first_name>a</first_name>
-	<last_name>bljh</last_name>
-	<phone_number>c</phone_number>
-	<notes>d</notes>
-</contact>
-<contact>
-	<first_name>c</first_name>
-	<last_name>k</last_name>
-	<phone_number>e</phone_number>
-	<notes>g</notes>
-</contact>
-<contact>
-	<first_name>g</first_name>
-	<last_name>g</last_name>
-	<phone_number>j</phone_number>
-	<notes>j</notes>
-</contact>
-<contact>
-	<first_name>j</first_name>
-	<last_name>k</last_name>
-	<phone_number>j</phone_number>
-	<notes>j</notes>
+	<first_name>s</first_name>
+	<last_name>sassss</last_name>
+	<phone_number>ss</phone_number>
+	<notes>sss</notes>
 </contact>
 </contacts>

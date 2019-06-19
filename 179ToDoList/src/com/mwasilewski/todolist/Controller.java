@@ -53,8 +53,8 @@ public class Controller {
 //                "See Dr. Smith", LocalDate.of(2017, Month.APRIL, 25)));
         //todoItems = ToDoData.getInstance().getToDoItems();
         //ToDoData.getInstance().setToDoItems(todoItems);
-        filteredList=new FilteredList<>(ToDoData.getInstance().getToDoItems(),
-                item->true);
+        filteredList = new FilteredList<>(ToDoData.getInstance().getToDoItems(),
+                item -> true);
         SortedList<ToDoItem> sortedList = new SortedList<>(filteredList,
                 Comparator.comparing(ToDoItem::getDeadline));
         toDoListView.setItems(sortedList);
@@ -170,28 +170,21 @@ public class Controller {
     }
 
     public void handleToogleClicked() {
-        ToDoItem selectedItem=toDoListView.getSelectionModel().getSelectedItem();
-        if(toggleListFilter.isSelected())
-        {
+        ToDoItem selectedItem = toDoListView.getSelectionModel().getSelectedItem();
+        if (toggleListFilter.isSelected()) {
 
             System.out.println("Selected!");
-            filteredList.setPredicate(item->item.getDeadline().equals(LocalDate.now()));
-            if (!filteredList.contains(selectedItem))
-            {
+            filteredList.setPredicate(item -> item.getDeadline().equals(LocalDate.now()));
+            if (!filteredList.contains(selectedItem)) {
                 toDoListView.getSelectionModel().selectFirst();
-            }
-            else{
+            } else {
                 toDoListView.getSelectionModel().select(selectedItem);
             }
-        }
-        else
-        {
-            filteredList.setPredicate(item->true);
-            if (!filteredList.contains(selectedItem))
-            {
+        } else {
+            filteredList.setPredicate(item -> true);
+            if (!filteredList.contains(selectedItem)) {
                 toDoListView.getSelectionModel().selectFirst();
-            }
-            else{
+            } else {
                 toDoListView.getSelectionModel().select(selectedItem);
             }
         }
