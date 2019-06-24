@@ -7,47 +7,68 @@ public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locations = new LinkedHashMap<>();
 
     public static void main(String[] args) throws IOException {
-        try (DataOutputStream locFile = new DataOutputStream(new BufferedOutputStream(
-                new FileOutputStream("locations.dat")))) {
+//        try (DataOutputStream locFile = new DataOutputStream(new BufferedOutputStream(
+//                new FileOutputStream("locations.dat")))) {
+//            for (Location l : locations.values()) {
+//                locFile.writeInt(l.getLocationID());
+//                locFile.writeUTF(l.getDescription());
+//                System.out.println(String.join("  ", "Writing:",
+//                        l.getDescription(), Integer.toString(l.getLocationID())));
+//                locFile.writeInt(l.getExits().size() - 1);
+//                for (String dir : l.getExits().keySet()) {
+//                    if (!dir.equals("Q")) {
+//                        locFile.writeUTF(dir);
+//                        locFile.writeInt(l.getExits().get(dir));
+//                    }
+//                }
+//            }
+//        }
+        try (ObjectOutputStream locFile = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("locations.dat")))) {
             for (Location l : locations.values()) {
-                locFile.writeInt(l.getLocationID());
-                locFile.writeUTF(l.getDescription());
-                System.out.println(String.join("  ", "Writing:",
-                        l.getDescription(), Integer.toString(l.getLocationID())));
-                locFile.writeInt(l.getExits().size() - 1);
-                for (String dir : l.getExits().keySet()) {
-                    if (!dir.equals("Q")) {
-                        locFile.writeUTF(dir);
-                        locFile.writeInt(l.getExits().get(dir));
-                    }
-                }
+                locFile.writeObject(l);
             }
         }
     }
 
     static {
 
-        try (DataInputStream locFile = new DataInputStream(new BufferedInputStream(new FileInputStream("locations.dat")))) {
+//        try (DataInputStream locFile = new DataInputStream(new BufferedInputStream(new FileInputStream("locations.dat")))) {
+//            boolean eof = false;
+//            while (!eof) {
+//                try {
+//                    Map<String, Integer> exits = new LinkedHashMap<>();
+//                    int locID = locFile.readInt();
+//                    String desc = locFile.readUTF();
+//                    int numExits = locFile.readInt();
+//                    System.out.println(String.join(" ", "Read location", Integer.toString(locID), desc));
+//                    for (int i = 0; i < numExits; i++) {
+//                        String dir = locFile.readUTF();
+//                        int dest = locFile.readInt();
+//                        exits.put(dir, dest);
+//                    }
+//                    locations.put(locID, new Location(locID, desc, exits));
+//                } catch (EOFException e) {
+//                    eof = true;
+//                }
+//            }
+//        } catch (IOException e) {
+//            System.out.println("IO Exception");
+//        }
+        try (ObjectInputStream locFile = new ObjectInputStream(new BufferedInputStream(new FileInputStream("locations.dat")))) {
             boolean eof = false;
             while (!eof) {
                 try {
-                    Map<String, Integer> exits = new LinkedHashMap<>();
-                    int locID = locFile.readInt();
-                    String desc = locFile.readUTF();
-                    int numExits = locFile.readInt();
-                    System.out.println(String.join(" ", "Read location", Integer.toString(locID), desc));
-                    for (int i = 0; i < numExits; i++) {
-                        String dir = locFile.readUTF();
-                        int dest = locFile.readInt();
-                        exits.put(dir, dest);
-                    }
-                    locations.put(locID, new Location(locID, desc, exits));
+                    Location l = (Location) locFile.readObject();
+                    locations.put(l.getLocationID(), l);
                 } catch (EOFException e) {
                     eof = true;
                 }
             }
         } catch (IOException e) {
-            System.out.println("IO Exception");
+            System.out.println("IOException");
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
 //        //Scanner scanner = null;
 //        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("locations_big.txt"))) {
