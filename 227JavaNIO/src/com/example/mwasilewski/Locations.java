@@ -1,37 +1,47 @@
 package com.example.mwasilewski;
 
 import java.io.*;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 
 public class Locations implements Map<Integer, Location> {
     private static Map<Integer, Location> locations = new LinkedHashMap<>();
 
     public static void main(String[] args) throws IOException {
-        try (ObjectOutputStream locFile = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("locations.dat")))) {
+        Path locPath = FileSystems.getDefault().getPath("locations_big.txt");
+        Path dirPath = FileSystems.getDefault().getPath("directions_big.txt");
+        try (BufferedWriter locFile = Files.newBufferedWriter(locPath);
+             BufferedWriter dirFile = Files.newBufferedWriter(dirPath)) {
             for (Location l : locations.values()) {
-                locFile.writeObject(l);
+                locFile.write(l.getLocationID() + "," + l.getDescription() + "\n");
+                for (String dir : l.getExits().keySet()) {
+                    if (!dir.equalsIgnoreCase("Q")) {
+                        dirFile.write(l.getLocationID() + "," + dir + l.getExits().get(dir) + "\n");
+
+                    }
+                }
             }
         }
     }
-// Bytes 0-3: number of locations
-//    Bytes 4-7: start offset of locations section
-//    Bytes 8-1699: index
-//    Bytes 1700- : actual data
     static {
-        try (ObjectInputStream locFile = new ObjectInputStream(new BufferedInputStream(new FileInputStream("locations.dat")))) {
-            boolean eof = false;
-            while (!eof) {
-                try {
-                    Location l = (Location) locFile.readObject();
-                    locations.put(l.getLocationID(), l);
-                } catch (EOFException e) {
-                    eof = true;
-                }
+        Path locPath = FileSystems.getDefault().getPath("locations_big.txt");
+        Path dirPath = FileSystems.getDefault().getPath("directions_big.txt");
+        try(Scanner scanner=new Scanner(Files.newBufferedReader(locPath)))
+        {
+            scanner.useDelimiter(",");
+            while(scanner.hasNextLine())
+            {
+                int loc=scanner.nextInt();
+                scanner.skip(scanner.delimiter());
+                String description=scanner.nextLine();
+                System.out.println("loc: "+loc+" desc "+description);
+                locations.put(loc, new Location(loc, description,null));
+
             }
-        } catch (IOException e) {
-            System.out.println("IOException");
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        }catch (IOException e)
+        {
             e.printStackTrace();
         }
     }
