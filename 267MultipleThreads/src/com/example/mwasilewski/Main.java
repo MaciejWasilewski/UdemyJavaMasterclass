@@ -31,7 +31,7 @@ class Countdown {
 //        }
 
         while (i > 0) {
-            synchronized (i){System.out.println(st + (i--));}
+            synchronized (this){System.out.println(st + (i--));}
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
