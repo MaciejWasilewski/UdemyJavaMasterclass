@@ -1,12 +1,8 @@
 package com.example.mwasilewski;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 import java.util.concurrent.locks.ReentrantLock;
 
 import static com.example.mwasilewski.Main.EOF;
@@ -15,20 +11,20 @@ public class Main {
     static final String EOF = "EOF";
 
     public static void main(String[] args) {
-        final List<String> buffer = new ArrayList<>();
+        ArrayBlockingQueue<String> buffer = new ArrayBlockingQueue<String>(6);
         ReentrantLock bufferLock = new ReentrantLock();
 
-        ExecutorService executorService= Executors.newFixedThreadPool(4);
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
 
-        MyProducer producer = new MyProducer(buffer, "* producer1 *", bufferLock);
-        MyConsumer consumer1 = new MyConsumer(buffer, "*** consumer1 ***", bufferLock);
-        MyConsumer consumer2 = new MyConsumer(buffer, "**** consumer2 ****", bufferLock);
+        MyProducer producer = new MyProducer(buffer, "* producer1 *");
+        MyConsumer consumer1 = new MyConsumer(buffer, "*** consumer1 ***");
+        MyConsumer consumer2 = new MyConsumer(buffer, "**** consumer2 ****");
 
         executorService.execute(producer);
         executorService.execute(consumer1);
         executorService.execute(consumer2);
 
-        Future<String> future=executorService.submit(()->{
+        Future<String> future = executorService.submit(() -> {
             System.out.println("I'm being printed by the Callable lambda function");
             return "This is callable result";
         });
@@ -47,15 +43,15 @@ public class Main {
 }
 
 class MyProducer implements Runnable {
-    private final List<String> buffer;
+    private final ArrayBlockingQueue<String> buffer;
     private String id;
-    private final ReentrantLock bufferLock;
+    private ReentrantLock bufferLock;
 
-    public MyProducer(List<String> buffer, String id, ReentrantLock reentrantLock) {
+    public MyProducer(ArrayBlockingQueue<String> buffer, String id) {
         this.buffer = buffer;
         this.id = id;
-        this.bufferLock = reentrantLock;
     }
+
 
     @Override
     public void run() {
@@ -63,13 +59,11 @@ class MyProducer implements Runnable {
         String[] nums = {"1", "2", "3", "4", "5"};
         for (String s : nums) {
             System.out.println(id + " adding... " + s);
-            bufferLock.lock();
             try {
-                buffer.add(s);
-            } finally {
-                bufferLock.unlock();
+                buffer.put(s);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-
             try {
                 Thread.sleep(random.nextInt(1000));
             } catch (InterruptedException e) {
@@ -78,45 +72,44 @@ class MyProducer implements Runnable {
             }
         }
         System.out.println(id + " exit");
-        bufferLock.lock();
         try {
-            buffer.add(EOF);
-        } finally {
-            bufferLock.unlock();
+            buffer.put(EOF);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+
     }
 }
 
 class MyConsumer implements Runnable {
-    private final List<String> buffer;
+    private final ArrayBlockingQueue<String> buffer;
     private String id;
-    private final ReentrantLock bufferLock;
 
-    public MyConsumer(List<String> buffer, String id, ReentrantLock reentrantLock) {
+    public MyConsumer(ArrayBlockingQueue<String> buffer, String id) {
         this.buffer = buffer;
         this.id = id;
-        this.bufferLock = reentrantLock;
     }
 
     @Override
     public void run() {
         while (true) {
-            bufferLock.lock();
             try {
-                if (buffer.isEmpty()) {
-                    //System.out.println(id + " buffer is empty");
+                synchronized (buffer) {
+                    if (buffer.isEmpty()) {
+                        //System.out.println(id + " buffer is empty");
 //                    bufferLock.unlock();
-                    continue;
-                }
-                if (buffer.get(0).equals(EOF)) {
-                    System.out.println(id + " exiting");
+                        continue;
+                    }
+                    if (buffer.peek().equals(EOF)) {
+                        System.out.println(id + " exiting");
 //                    bufferLock.unlock();
-                    break;
-                } else {
-                    System.out.println(id + " removed " + buffer.remove(0));
+                        break;
+                    } else {
+                        System.out.println(id + " removed " + buffer.take());
+                    }
                 }
-            } finally {
-                bufferLock.unlock();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
 
         }
