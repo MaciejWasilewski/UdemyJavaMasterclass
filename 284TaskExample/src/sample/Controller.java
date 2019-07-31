@@ -1,40 +1,52 @@
 package sample;
 
-import javafx.application.Platform;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
+import javafx.concurrent.Worker;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ProgressBar;
 
 public class Controller {
-    private Task<ObservableList<String>> task;
-
     @FXML
-    private ListView lView;
+    private Label pgLabel;
+    @FXML
+    private ProgressBar pgBar;
+
+
+    private EmployeeService loadNamesService;
+    @FXML
+    private ListView<String> lView;
 
     public void initialize() {
-        task = new Task<ObservableList<String>>() {
-            @Override
-            protected ObservableList<String> call() throws Exception {
-                Thread.sleep(1000);
-                ObservableList<String> employees=FXCollections.observableArrayList(
-                        "Tim",
-                        "Bill",
-                        "Jack",
-                        "Mary",
-                        "Maciek");
-                                return employees;
-            }
-        };
-        lView.itemsProperty().bind(task.valueProperty());
-
+        pgBar.setVisible(false);
+        pgLabel.setVisible(false);
+        loadNamesService = new EmployeeService();
+        lView.itemsProperty().bind(loadNamesService.valueProperty());
+        pgBar.progressProperty().bind(loadNamesService.progressProperty());
+        pgLabel.textProperty().bind(loadNamesService.messageProperty());
+//        loadNamesService.setOnRunning(event -> {
+//            pgBar.setVisible(true);
+//            pgLabel.setVisible(true);
+//        });
+//        loadNamesService.setOnSucceeded(event -> {
+//            pgBar.setVisible(false);
+//            pgLabel.setVisible(false);
+//        });
+        pgBar.visibleProperty().bind(loadNamesService.runningProperty());
+        pgLabel.visibleProperty().bind(loadNamesService.runningProperty());
     }
 
     @FXML
     void buttonPressed() {
-        new Thread(task).start();
+        if (loadNamesService.getState().equals(Worker.State.SUCCEEDED)) {
+            loadNamesService.reset();
+            loadNamesService.start();
+        } else if (loadNamesService.getState().equals(Worker.State.READY)) {
+            loadNamesService.start();
+        }
+
     }
+
 }
