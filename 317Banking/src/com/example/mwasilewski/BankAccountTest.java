@@ -25,11 +25,12 @@ class BankAccountTest {
 
     @org.junit.jupiter.api.Test
     void withdraw_notBranch() {
-        assertThrows(IllegalArgumentException.class,()->account.withdraw(600,false));
+        assertThrows(IllegalArgumentException.class, () -> account.withdraw(600, false));
     }
+
     @org.junit.jupiter.api.Test
     void withdraw_branch() {
-        assertEquals(400,account.withdraw(600,true));
+        assertEquals(400, account.withdraw(600, true));
     }
 
     @org.junit.jupiter.api.Test
@@ -51,8 +52,6 @@ class BankAccountTest {
 
         assertTrue(account.isChecking(), "The account is not, but should be, checking account");
     }
-
-
 
 
 }
