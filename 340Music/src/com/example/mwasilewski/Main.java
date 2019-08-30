@@ -28,12 +28,22 @@ public class Main {
         }
         if (!artists.isEmpty()) {
             try {
-                System.out.println(dataSource.queryAlbumsForArtist("Pink Ffloyd",1));
+                System.out.println(dataSource.queryAlbumsForArtist("Pink Ffloyd", 1));
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
-
+        try {
+            dataSource.querySongAlbumArtist("Go Your Own Way")
+                    .forEach(System.out::println);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            System.out.println(dataSource.getCount(DataSource.TAB_ARTISTS));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         dataSource.close();
 

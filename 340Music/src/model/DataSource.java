@@ -27,6 +27,25 @@ public class DataSource {
     public static final String COL_SONG_TITLE = "title";
     public static final String COL_SONG_ALBUM = "album";
     public static final String COL_SONG_TRACK = "track";
+
+    public static final String PS_QUERY_ARTIST_FOR_SONG =
+            "select " + TAB_SONGS + "." + COL_SONG_TRACK + ", " + TAB_ALBUMS + "." + COL_ALBUM_NAME + ", "
+                    + TAB_ARTISTS + "." + COL_ARTIST_NAME +
+                    " FROM " + TAB_SONGS +
+                    " INNER JOIN " + TAB_ALBUMS + " on " + TAB_SONGS + "." + COL_SONG_ALBUM + " = " + TAB_ALBUMS +
+                    "." + COL_ALBUM_ID +
+                    " inner join " + TAB_ARTISTS + " on " + TAB_ALBUMS + "." + COL_ALBUM_ARTIST + " = " + TAB_ARTISTS +
+                    "." + COL_ARTIST_ID +
+                    " where " + TAB_SONGS + "." + COL_SONG_TITLE + " = ? order by " + TAB_ARTISTS + "." + COL_ARTIST_NAME + ", " +
+                    TAB_ALBUMS + "." + COL_ALBUM_NAME + ", " + TAB_SONGS + "." + COL_SONG_TRACK + " COLLATE NOCASE ASC";
+
+    public static final String TAB_ARTIST_SONG_VIEW="artist_list";
+    public static final String CREATE_VIEW="CREATE VIEW  if not exists artist_list as " +
+            "select artists.name as artist, albums.name as album, songs.track as track, songs.title as song from " +
+            "songs " +
+            "inner join albums on songs.album=albums._id " +
+            "inner join artists on albums.artist=artists._id " +
+            "order by artist, album, track;";
     //private static PreparedStatement selectStatement;
     private Connection conn;
 
@@ -85,6 +104,7 @@ public class DataSource {
 
 
     public List<Album> queryAlbumsFromArtist(Artist a) throws SQLException {
+
         List<Album> albums = new ArrayList<>();
         try (PreparedStatement statement = conn.prepareStatement("SELECT * FROM " + TAB_ALBUMS
                 + " where " + COL_ALBUM_ARTIST + "=?" + "ORDER BY " + COL_ALBUM_NAME + " ASC")) {
@@ -103,22 +123,50 @@ public class DataSource {
 
     public List<String> queryAlbumsForArtist(String artistName, int sortOrder) throws SQLException {
         List<String> albums = new ArrayList<>();
-        final String albumName=TAB_ALBUMS+"."+COL_ALBUM_NAME;
-        final String aName=TAB_ARTISTS+"."+COL_ARTIST_NAME;
-        final String albumArtist=TAB_ALBUMS+"."+COL_ALBUM_ARTIST;
-        final String artistId=TAB_ARTISTS+"."+COL_ARTIST_ID;
+        final String albumName = TAB_ALBUMS + "." + COL_ALBUM_NAME;
+        final String aName = TAB_ARTISTS + "." + COL_ARTIST_NAME;
+        final String albumArtist = TAB_ALBUMS + "." + COL_ALBUM_ARTIST;
+        final String artistId = TAB_ARTISTS + "." + COL_ARTIST_ID;
         try (PreparedStatement statement = conn
                 .prepareStatement("SELECT " + albumName + " FROM " + TAB_ALBUMS + " INNER JOIN " + TAB_ARTISTS + " ON " +
-                        albumArtist+"="+artistId+" WHERE "+aName+"=? order by "+albumName+" ASC")) {
+                        albumArtist + "=" + artistId + " WHERE " + aName + "=? order by " + albumName + " ASC")) {
             statement.setString(1, artistName);
             try (ResultSet result = statement.executeQuery()) {
-                while(result.next())
-                {
+                while (result.next()) {
                     albums.add(result.getString(COL_ALBUM_NAME));
                 }
             }
         }
 
+
         return albums;
+    }
+
+    public List<SongArtist> querySongAlbumArtist(String title) throws SQLException {
+        List<SongArtist> out = new ArrayList<>();
+        try (PreparedStatement statement = conn.prepareStatement(PS_QUERY_ARTIST_FOR_SONG)) {
+            statement.setString(1, title);
+            try (ResultSet results = statement.executeQuery()) {
+                while (results.next()) {
+                    out.add(new SongArtist(results.getString(3),
+                            results.getString(2),
+                            results.getInt(1)));
+                }
+            }
+        }
+        return out;
+
+
+
+    }
+    public int getCount(String table) throws SQLException {
+
+        try(Statement statement =conn.createStatement();
+        ResultSet result=statement.executeQuery("select count(*) from "+table))
+        {
+
+            return result.getInt(1);
+        }
+
     }
 }
