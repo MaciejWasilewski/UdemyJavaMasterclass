@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6f6a426a-e486-4405-88e7-f5ac70652607" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../ArrayChallenge/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ArrayChallenge/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ArrayChallenge/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ArrayChallenge/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ArrayChallenge/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ArrayChallenge/ArrayChallenge.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ArrayChallenge/out/production/ArrayChallenge/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ArrayListChallenge/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ArrayListChallenge/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ArrayListChallenge/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ArrayListChallenge/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ArrayListChallenge/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ArrayListChallenge/ArrayListChallenge.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ArrayListChallenge/out/production/ArrayListChallenge/com/mw/Contacts.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ArrayListChallenge/out/production/ArrayListChallenge/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ArrayListChallenge/out/production/ArrayListChallenge/com/mw/MobilePhone.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Arrays/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Arrays/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Arrays/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Arrays/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Arrays/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Arrays/Arrays.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Arrays/out/production/Arrays/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Autoboxing/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Autoboxing/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Autoboxing/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Autoboxing/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Autoboxing/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Autoboxing/Autoboxing.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ByteShortInt/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ByteShortInt/ByteShortInt.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CharAndBoolean/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CharAndBoolean/CharAndBoolean.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CharAndBoolean/out/production/CharAndBoolean/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Composition/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Composition/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Composition/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Composition/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Composition/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Composition/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Composition/Composition.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Composition/out/production/Composition/com/mw/Car.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Composition/out/production/Composition/com/mw/Case.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Composition/out/production/Composition/com/mw/Dimensions.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Composition/out/production/Composition/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Composition/out/production/Composition/com/mw/Monitor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Composition/out/production/Composition/com/mw/Motherboard.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Composition/out/production/Composition/com/mw/PC.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Composition/out/production/Composition/com/mw/Resolution.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Composition/out/production/Composition/com/mw/Vehicle.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Encapsulation/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Encapsulation/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Encapsulation/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Encapsulation/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Encapsulation/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Encapsulation/Encapsulation.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Encapsulation/out/production/Encapsulation/com/mw/EnhancedPlayer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Encapsulation/out/production/Encapsulation/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Encapsulation/out/production/Encapsulation/com/mw/Player.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EncapsulationChallenge/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EncapsulationChallenge/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EncapsulationChallenge/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EncapsulationChallenge/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EncapsulationChallenge/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EncapsulationChallenge/EncapsulationChallenge.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EncapsulationChallenge/out/production/EncapsulationChallenge/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EncapsulationChallenge/out/production/EncapsulationChallenge/com/mw/Printer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FloatAndDouble/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FloatAndDouble/FloatAndDouble.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FloatAndDouble/out/production/FloatAndDouble/com/company/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ForLoop/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ForLoop/ForLoop.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ForLoop/out/production/ForLoop/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IfKeywordAndCodeBlocks/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IfKeywordAndCodeBlocks/IfKeywordAndCodeBlocks.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../IfKeywordAndCodeBlocks/out/production/IfKeywordAndCodeBlocks/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InheritanceChallenge/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InheritanceChallenge/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InheritanceChallenge/InheritanceChallenge.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InheritanceChallenge/out/production/InheritanceChallenge/com/mw/Car.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InheritanceChallenge/out/production/InheritanceChallenge/com/mw/Ford.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InheritanceChallenge/out/production/InheritanceChallenge/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../InheritanceChallenge/out/production/InheritanceChallenge/com/mw/Vehicle.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../KeywordsAndExpressions/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../KeywordsAndExpressions/KeywordsAndExpressions.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../KeywordsAndExpressions/out/production/KeywordsAndExpressions/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LinkedListChallenge/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LinkedListChallenge/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LinkedListChallenge/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LinkedListChallenge/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LinkedListChallenge/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LinkedListChallenge/LinkedListChallenge.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LinkedListChallenge/out/production/LinkedListChallenge/com/mw/Addition.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LinkedListChallenge/out/production/LinkedListChallenge/com/mw/BasicHamburger.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LinkedListChallenge/out/production/LinkedListChallenge/com/mw/BreadRoll.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LinkedListChallenge/out/production/LinkedListChallenge/com/mw/DeluxeHamburger.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LinkedListChallenge/out/production/LinkedListChallenge/com/mw/HealthyBurger.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LinkedListChallenge/out/production/LinkedListChallenge/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LinkedListChallenge/out/production/LinkedListChallenge/com/mw/Meat.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LinkedListChallenge/out/production/LinkedListChallenge/com/mw/Product.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ListAndArrayList.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ListAndArrayList/com/mw/GroceryList.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/ListAndArrayList/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MethodOverloading/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MethodOverloading/MethodOverloading.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MethodOverloading/out/production/MethodOverloading/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Methods/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Methods/Methods.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Methods/out/production/Methods/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MinAndMaxInputChallenge/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MinAndMaxInputChallenge/MinAndMaxInputChallenge.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MinAndMaxInputChallenge/out/production/MinAndMaxInputChallenge/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MinimumElementChallenge/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MinimumElementChallenge/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MinimumElementChallenge/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MinimumElementChallenge/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MinimumElementChallenge/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MinimumElementChallenge/MinimumElementChallenge.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MinimumElementChallenge/out/production/MinimumElementChallenge/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Operators/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Operators/Operators.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Operators/out/production/Operators/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ParsingValuesfromString/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ParsingValuesfromString/ParsingValuesfromString.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ParsingValuesfromString/out/production/ParsingValuesfromString/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Polymorphism/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Polymorphism/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Polymorphism/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Polymorphism/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Polymorphism/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Polymorphism/Polymorphism.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Polymorphism/out/production/Polymorphism/com/mw/IndependenceDay.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Polymorphism/out/production/Polymorphism/com/mw/Jaws.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Polymorphism/out/production/Polymorphism/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Polymorphism/out/production/Polymorphism/com/mw/MazeRunner.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Polymorphism/out/production/Polymorphism/com/mw/Movie.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Polymorphism/out/production/Polymorphism/com/mw/Plotless.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Polymorphism/out/production/Polymorphism/com/mw/StarWars.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PolymorphismChallenge/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PolymorphismChallenge/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PolymorphismChallenge/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PolymorphismChallenge/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PolymorphismChallenge/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PolymorphismChallenge/PolymorphismChallenge.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PolymorphismChallenge/out/production/PolymorphismChallenge/com/mw/Car.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PolymorphismChallenge/out/production/PolymorphismChallenge/com/mw/Ford.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PolymorphismChallenge/out/production/PolymorphismChallenge/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PolymorphismChallenge/out/production/PolymorphismChallenge/com/mw/Noname.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReadingUserInput/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReadingUserInput/ReadingUserInput.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReadingUserInput/out/production/ReadingUserInput/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReadingUserInputChallenge/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReadingUserInputChallenge/ReadingUserInputChallenge.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReadingUserInputChallenge/out/production/ReadingUserInputChallenge/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReferenceVsValuesTypes/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReferenceVsValuesTypes/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReferenceVsValuesTypes/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReferenceVsValuesTypes/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReferenceVsValuesTypes/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReferenceVsValuesTypes/ReferenceVsValuesTypes.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ReferenceVsValuesTypes/out/production/ReferenceVsValuesTypes/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SecondsAndMinutesChallenge/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SecondsAndMinutesChallenge/SecondsAndMinutesChallenge.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SecondsAndMinutesChallenge/out/production/SecondsAndMinutesChallenge/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StatementsWhiteSpaceAndIndenting/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../StatementsWhiteSpaceAndIndenting/StatementsWhiteSpaceAndIndenting.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Strings/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Strings/Strings.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Strings/out/production/Strings/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Switch/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Switch/Switch.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Switch/out/production/Switch/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../While/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../While/While.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../While/out/production/While/com/mw/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sec_3HelloWorld/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sec_3HelloWorld/out/production/sec_3_HelloWorld/Hello.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sec_3HelloWorld/sec_3_HelloWorld.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AutoboxingChallenge/src/com/mw/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AutoboxingChallenge/src/com/mw/Bank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AutoboxingChallenge/src/com/mw/Branch.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AutoboxingChallenge/src/com/mw/Branch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AutoboxingChallenge/src/com/mw/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AutoboxingChallenge/src/com/mw/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AutoboxingChallenge/src/com/mw/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AutoboxingChallenge/src/com/mw/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Constructors/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Constructors/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Inheritance/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Inheritance/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Inheritance/Inheritance.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Inheritance/Inheritance.iml" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1274778899">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.69" value="1" />
+          <entry key="project.open.time.75" value="1" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="2383" />
+          <entry key="txt" value="14" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="2383" />
+          <entry key="PLAIN_TEXT" value="14" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="3" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/mw/GroceryList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Maciej Wasilewski &lt;maciej0wasilewski@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/com/mw/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/mw/GroceryList.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1949" />
+    <option name="y" value="-4" />
+    <option name="width" value="1615" />
+    <option name="height" value="1046" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ListAndArrayList" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ListAndArrayList" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ListAndArrayList" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ListAndArrayList" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ListAndArrayList" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ListAndArrayList" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="mw" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534260736875" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.mw.Main" />
+      <module name="ListAndArrayList" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6f6a426a-e486-4405-88e7-f5ac70652607" name="Default Changelist" comment="" />
+      <created>1533740234661</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1533740234661</updated>
+      <workItem from="1533740236684" duration="2610000" />
+      <workItem from="1533903301549" duration="2916000" />
+      <workItem from="1534249206444" duration="5271000" />
+      <workItem from="1535452741011" duration="209000" />
+    </task>
+    <task id="LOCAL-00001" summary="up to82">
+      <created>1533743817863</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1533743817863</updated>
+    </task>
+    <task id="LOCAL-00002" summary="up to83">
+      <created>1533908892006</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1533908892006</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="11006000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1985" y="-4" width="1615" height="1054" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2594009" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Learn" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32937366" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="up to82" />
+    <MESSAGE value="up to83" />
+    <option name="LAST_COMMIT_MESSAGE" value="up to83" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar:///usr/lib/jvm/java-10-oracle/lib/src.zip!/java.base/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="315" column="15" selection-start-line="315" selection-start-column="15" selection-end-line="315" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mw/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="71" column="20" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mw/GroceryList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

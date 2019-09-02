@@ -1,0 +1,18 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<VBox fx:controller="sample.Controller"
+      xmlns:fx="http://javafx.com/fxml" alignment="center" fx:id="mainScene">
+    <MenuBar GridPane.rowIndex="0" GridPane.columnIndex="0">
+        <Menu text="Contacts">
+            <MenuItem text="New Contact" fx:id="menuNewContact" onAction="#handleNewContact"/>
+        </Menu>
+    </MenuBar>
+    <TableView fx:id="tableViewContacts" GridPane.columnIndex="0" GridPane.rowIndex="1">
+    </TableView>
+</VBox>

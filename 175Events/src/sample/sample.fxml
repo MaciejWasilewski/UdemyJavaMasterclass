@@ -1,0 +1,15 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.CheckBox?>
+<GridPane fx:controller="sample.Controller"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <TextField GridPane.columnIndex="0" GridPane.rowIndex="1" fx:id="nameField" onKeyReleased="#handleKeyReleased"/>
+    <Button fx:id="button1" text="Hello" GridPane.rowIndex="0" GridPane.columnIndex="0" onAction="#onButtonClicked" disable="true"/>
+    <Button fx:id="button2" text="Hello2" GridPane.rowIndex="1" GridPane.columnIndex="1" onAction="#onButtonClicked" disable="true"/>
+    <CheckBox text="Clear the field after saying hello" GridPane.rowIndex="2" GridPane.columnIndex="0" fx:id="checkBox1"/>
+    <Label fx:id="ourLabel" text="Nothing has happened" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+</GridPane>
