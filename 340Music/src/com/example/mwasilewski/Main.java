@@ -26,7 +26,7 @@ public class Main {
                 e.printStackTrace();
             }
         }
-        if (!artists.isEmpty()) {
+        if (true) {
             try {
                 System.out.println(dataSource.queryAlbumsForArtist("Pink Ffloyd", 1));
             } catch (SQLException e) {
@@ -45,6 +45,12 @@ public class Main {
             e.printStackTrace();
         }
 
+        try{
+            dataSource.querySingInfoView("Go Your Own Way")
+                    .forEach(System.out::println);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         dataSource.close();
 
         // write your code here

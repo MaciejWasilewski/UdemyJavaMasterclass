@@ -39,13 +39,18 @@ public class DataSource {
                     " where " + TAB_SONGS + "." + COL_SONG_TITLE + " = ? order by " + TAB_ARTISTS + "." + COL_ARTIST_NAME + ", " +
                     TAB_ALBUMS + "." + COL_ALBUM_NAME + ", " + TAB_SONGS + "." + COL_SONG_TRACK + " COLLATE NOCASE ASC";
 
-    public static final String TAB_ARTIST_SONG_VIEW="artist_list";
-    public static final String CREATE_VIEW="CREATE VIEW  if not exists artist_list as " +
+    public static final String TAB_ARTIST_SONG_VIEW = "artist_list";
+    public static final String CREATE_VIEW = "CREATE VIEW  if not exists artist_list as " +
             "select artists.name as artist, albums.name as album, songs.track as track, songs.title as song from " +
             "songs " +
             "inner join albums on songs.album=albums._id " +
             "inner join artists on albums.artist=artists._id " +
             "order by artist, album, track;";
+
+    public static final String QUERY_VIEW_SONG_INFO = "select artist, album, track " +
+            "from artist_list " +
+            "where song = ? " +
+            "order by artist,album, track asc";
     //private static PreparedStatement selectStatement;
     private Connection conn;
 
@@ -157,16 +162,33 @@ public class DataSource {
         return out;
 
 
+    }
+
+    public List<SongArtist> querySingInfoView(String title) throws SQLException {
+        List<SongArtist> out = new ArrayList<>();
+        try (PreparedStatement statement = conn.prepareStatement(QUERY_VIEW_SONG_INFO)) {
+            statement.setString(1, title);
+            try (ResultSet results = statement.executeQuery()) {
+                while (results.next()) {
+                    out.add(new SongArtist(results.getString("artist"),
+                            results.getString("album"),
+                            results.getInt("track")));
+                }
+            }
+        }
+        return out;
+
 
     }
+
     public int getCount(String table) throws SQLException {
 
-        try(Statement statement =conn.createStatement();
-        ResultSet result=statement.executeQuery("select count(*) from "+table))
-        {
+        try (Statement statement = conn.createStatement();
+             ResultSet result = statement.executeQuery("select count(*) from " + table)) {
 
             return result.getInt(1);
         }
 
     }
+
 }
