@@ -51,8 +51,22 @@ public class DataSource {
             "from artist_list " +
             "where song = ? " +
             "order by artist,album, track asc";
+    public static final String INSERT_ARTIST="insert into "+TAB_ALBUMS+" ("+COL_ARTIST_NAME+") values(?)";
+    public static final String INSERT_ALBUM="insert into "+TAB_ARTISTS+" ("+COL_ALBUM_NAME+","+COL_ALBUM_ARTIST+") " +
+            "values" +
+            "(?,?)";
+    public static final String INSERT_SONG=
+            "insert into "+TAB_SONGS+" ("+COL_SONG_TRACK+","+COL_SONG_TITLE+","+COL_SONG_ALBUM+") values(?,?,?)";
+    public static final String QUERY="select %s from %s where %s=?";
+    public static final String QUERY_ALBUM_ID= String.format(QUERY, COL_ALBUM_ID, TAB_ALBUMS,COL_ALBUM_NAME);
+    public static final String QUERY_ARTIST_ID= String.format(QUERY, COL_ARTIST_ID, TAB_ARTISTS,COL_ARTIST_NAME);
     //private static PreparedStatement selectStatement;
     private Connection conn;
+    private PreparedStatement insertArtist;
+    private PreparedStatement insertAlbum;
+    private PreparedStatement insertSong;
+    private PreparedStatement queryArtist;
+    private PreparedStatement queryAlbum;
 
     private DataSource() {
         if (instance != null) {
@@ -72,6 +86,11 @@ public class DataSource {
     public boolean open() {
         try {
             instance.conn = DriverManager.getConnection(CONNECTION_STRING);
+            insertArtist=conn.prepareStatement(INSERT_ARTIST,Statement.RETURN_GENERATED_KEYS);
+            insertAlbum=conn.prepareStatement(INSERT_ALBUM,Statement.RETURN_GENERATED_KEYS);
+            insertSong=conn.prepareStatement(INSERT_SONG);
+            queryAlbum=conn.prepareStatement(QUERY_ALBUM_ID);
+            queryArtist=conn.prepareStatement(QUERY_ARTIST_ID);
 
             return true;
         } catch (SQLException e) {
@@ -86,6 +105,11 @@ public class DataSource {
         if (conn != null) {
             try {
                 conn.close();
+                insertSong.close();
+                insertAlbum.close();
+                insertArtist.close();
+                queryAlbum.close();
+                queryArtist.close();
             } catch (SQLException e) {
                 System.out.println("Could not close connection.\n" + e.getMessage());
             }
@@ -190,5 +214,6 @@ public class DataSource {
         }
 
     }
+
 
 }
