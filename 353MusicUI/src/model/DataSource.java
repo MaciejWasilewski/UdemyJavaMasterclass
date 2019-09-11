@@ -1,6 +1,9 @@
 package model;
 
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -116,12 +119,14 @@ public class DataSource {
     }
 
     public List<Artist> queryArtists() throws SQLException {
+        System.out.println("query artists");//TODO: delete
 
         List<Artist> artists = new ArrayList<>();
         try (PreparedStatement statement = conn.prepareStatement("SELECT * FROM " + TAB_ARTISTS);
              ResultSet results = statement.executeQuery()) {
             while (results.next()) {
-                artists.add(new Artist(results.getString(COL_ARTIST_NAME), results.getInt(COL_ARTIST_ID)));
+                artists.add(new Artist(new SimpleStringProperty(results.getString(COL_ARTIST_NAME)),
+                        new SimpleIntegerProperty(results.getInt(COL_ARTIST_ID))));
 
             }
             return artists;
@@ -136,7 +141,7 @@ public class DataSource {
         List<Album> albums = new ArrayList<>();
         try (PreparedStatement statement = conn.prepareStatement("SELECT * FROM " + TAB_ALBUMS
                 + " where " + COL_ALBUM_ARTIST + "=?" + "ORDER BY " + COL_ALBUM_NAME + " ASC")) {
-            statement.setInt(1, a.getId());
+            statement.setInt(1, a.getId().get());
             //statement.setString(2, COL_ALBUM_NAME);
             try (ResultSet results = statement.executeQuery()) {
                 while (results.next()) {
@@ -170,39 +175,39 @@ public class DataSource {
         return albums;
     }
 
-    public List<SongArtist> querySongAlbumArtist(String title) throws SQLException {
-        List<SongArtist> out = new ArrayList<>();
-        try (PreparedStatement statement = conn.prepareStatement(PS_QUERY_ARTIST_FOR_SONG)) {
-            statement.setString(1, title);
-            try (ResultSet results = statement.executeQuery()) {
-                while (results.next()) {
-                    out.add(new SongArtist(results.getString(3),
-                            results.getString(2),
-                            results.getInt(1)));
-                }
-            }
-        }
-        return out;
-
-
-    }
-
-    public List<SongArtist> querySingInfoView(String title) throws SQLException {
-        List<SongArtist> out = new ArrayList<>();
-        try (PreparedStatement statement = conn.prepareStatement(QUERY_VIEW_SONG_INFO)) {
-            statement.setString(1, title);
-            try (ResultSet results = statement.executeQuery()) {
-                while (results.next()) {
-                    out.add(new SongArtist(results.getString("artist"),
-                            results.getString("album"),
-                            results.getInt("track")));
-                }
-            }
-        }
-        return out;
-
-
-    }
+//    public List<SongArtist> querySongAlbumArtist(String title) throws SQLException {
+//        List<SongArtist> out = new ArrayList<>();
+//        try (PreparedStatement statement = conn.prepareStatement(PS_QUERY_ARTIST_FOR_SONG)) {
+//            statement.setString(1, title);
+//            try (ResultSet results = statement.executeQuery()) {
+//                while (results.next()) {
+//                    out.add(new SongArtist(results.getString(3),
+//                            results.getString(2),
+//                            results.getInt(1)));
+//                }
+//            }
+//        }
+//        return out;
+//
+//
+//    }
+//
+//    public List<SongArtist> querySingInfoView(String title) throws SQLException {
+//        List<SongArtist> out = new ArrayList<>();
+//        try (PreparedStatement statement = conn.prepareStatement(QUERY_VIEW_SONG_INFO)) {
+//            statement.setString(1, title);
+//            try (ResultSet results = statement.executeQuery()) {
+//                while (results.next()) {
+//                    out.add(new SongArtist(results.getString("artist"),
+//                            results.getString("album"),
+//                            results.getInt("track")));
+//                }
+//            }
+//        }
+//        return out;
+//
+//
+//    }
 
     public int getCount(String table) throws SQLException {
 
@@ -265,18 +270,16 @@ public class DataSource {
     public void insertSong(String title, String artist, String album, int track) {
         try {
             conn.setAutoCommit(false);
-            int artistId=insertArtist(artist);
-            int albumId=insertAlbum(album, artistId);
-            statInsertSong.setInt(1,track);
-            statInsertSong.setString(2,title);
-            statInsertSong.setInt(3,albumId);
-            int affectedRows=statInsertSong.executeUpdate();
+            int artistId = insertArtist(artist);
+            int albumId = insertAlbum(album, artistId);
+            statInsertSong.setInt(1, track);
+            statInsertSong.setString(2, title);
+            statInsertSong.setInt(3, albumId);
+            int affectedRows = statInsertSong.executeUpdate();
 
-            if(affectedRows==1)
-            {
+            if (affectedRows == 1) {
                 conn.commit();
-            }else
-            {
+            } else {
                 throw new SQLException("The song insert failed!");
             }
 
@@ -292,10 +295,9 @@ public class DataSource {
 
         } finally {
             System.out.println("Resetting conn to autocommit");
-            try{
-            conn.setAutoCommit(true);}
-            catch (SQLException e)
-            {
+            try {
+                conn.setAutoCommit(true);
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
 

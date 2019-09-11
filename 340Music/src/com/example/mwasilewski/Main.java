@@ -51,6 +51,9 @@ public class Main {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        dataSource.insertSong("Music", "Madonna", "Music", 1);
+
         dataSource.close();
 
         // write your code here
