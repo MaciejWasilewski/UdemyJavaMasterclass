@@ -31,9 +31,9 @@
     <right>
         <VBox alignment="CENTER" prefHeight="200" prefWidth="170" spacing="20" BorderPane.alignment="CENTER">
             <children>
-                <Button maxWidth="Infinity" mnemonicParsing="false" text="List Artsts"/>
-                <Button maxWidth="Infinity" mnemonicParsing="false" text="Show Albums (artist)"/>
-                <Button maxWidth="Infinity" mnemonicParsing="false" text="Update Artist"/>
+                <Button maxWidth="Infinity" mnemonicParsing="false" text="List Artsts" onMouseClicked="#showArtists"/>
+                <Button maxWidth="Infinity" mnemonicParsing="false" text="Show Albums (artist)" onMouseClicked="#showAlbums"/>
+                <Button maxWidth="Infinity" mnemonicParsing="false" text="Update Artist" onMouseClicked="#showArtists"/>
             </children>
             <BorderPane.margin>
                 <Insets right="10"/>
@@ -43,7 +43,7 @@
     <bottom>
         <HBox alignment="CENTER" prefHeight="100" prefWidth="200" BorderPane.alignment="CENTER">
             <children>
-                <ProgressBar prefWidth="200" progress="0" visible="false">
+                <ProgressBar fx:id="progBar" prefWidth="200" progress="0" visible="false">
                     <HBox.margin>
                         <Insets left="50"/>
                     </HBox.margin>

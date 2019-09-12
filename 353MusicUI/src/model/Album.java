@@ -1,13 +1,15 @@
 package model;
 
+import javafx.beans.property.SimpleStringProperty;
+
 public class Album {
     private int id;
-    private String name;
+    private SimpleStringProperty name;
     private int artistId;
 
     public Album(int id, String name, int artistId) {
         this.id = id;
-        this.name = name;
+        this.name = new SimpleStringProperty(name);
         this.artistId = artistId;
     }
 
@@ -20,11 +22,11 @@ public class Album {
     }
 
     public String getName() {
-        return name;
+        return name.get();
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = new SimpleStringProperty(name);
     }
 
     public int getArtistId() {
@@ -37,6 +39,6 @@ public class Album {
 
     @Override
     public String toString() {
-        return name;
+        return name.get();
     }
 }

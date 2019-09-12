@@ -118,7 +118,7 @@ public class DataSource {
     public List<Artist> queryArtists() throws SQLException {
 
         List<Artist> artists = new ArrayList<>();
-        try (PreparedStatement statement = conn.prepareStatement("SELECT * FROM " + TAB_ARTISTS);
+        try (PreparedStatement statement = conn.prepareStatement("SELECT * FROM " + TAB_ARTISTS+" ORDER BY name ASC");
              ResultSet results = statement.executeQuery()) {
             while (results.next()) {
                 artists.add(new Artist(results.getString(COL_ARTIST_NAME), results.getInt(COL_ARTIST_ID)));
