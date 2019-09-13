@@ -11,20 +11,10 @@ public class Main {
 
     public static void main(String[] args) {
         try (ServerSocket serverSocket = new ServerSocket(5000)) {
-            Socket socket = serverSocket.accept();
-            System.out.println("Client has connected");
-            try (BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                 PrintWriter output = new PrintWriter(socket.getOutputStream(), true)) {
-                String echo;
-                while (true) {
-                    echo = input.readLine();
-                    if (echo.equals("exit")) {
-                        output.println("Server: good-bye!");
-                        break;
-                    }
-                    output.println("Echo: " + echo);
-                }
-                output.print(input.readLine());
+            while (true) {
+                new Thread(new Echoer(serverSocket.accept())).start();
+                System.out.println("Client has connected");
+                System.out.println("dupa");
             }
         } catch (IOException e) {
             e.printStackTrace();
