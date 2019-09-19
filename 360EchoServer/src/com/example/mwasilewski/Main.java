@@ -14,7 +14,6 @@ public class Main {
             while (true) {
                 new Thread(new Echoer(serverSocket.accept())).start();
                 System.out.println("Client has connected");
-                System.out.println("dupa");
             }
         } catch (IOException e) {
             e.printStackTrace();

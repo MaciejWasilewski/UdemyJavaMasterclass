@@ -20,18 +20,20 @@ public class Echoer implements Runnable {
             String echo;
             while (true) {
                 echo = input.readLine();
-                if (echo.equals("exit")) {
+                if (echo==null || echo.equals("exit")) {
                     output.println("Server: good-bye!");
                     break;
                 }
+                Thread.sleep(15000);
                 output.println("Echo: " + echo);
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        finally {
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
             try {
-                System.out.println("Closing connection with socket of address: "+socket.);
+                System.out.println("Closing connection with a socket");
                 this.socket.close();
             } catch (IOException e) {
                 e.printStackTrace();
