@@ -15,7 +15,10 @@ public class Main {
                 DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
                 socket.receive(packet);
                 System.out.println("Text received is " + new String(buffer, 0, packet.getLength()));
-
+                String returnString = "echo: " + new String(buffer, 0, packet.getLength());
+                byte[] buffer2 = returnString.getBytes();
+                packet = new DatagramPacket(buffer2, buffer2.length, packet.getAddress(), packet.getPort());
+                socket.send(packet);
             }
         } catch (IOException e) {
             System.out.println("IOException: " + e.getMessage());
