@@ -35,7 +35,7 @@ public class Main {
             //            System.out.println(baseUri.resolve(uri3).toURL());
             //            //relativization
             //            System.out.println(baseUri.relativize(baseUri.resolve(uri2)));
-            URL url = new URL("https://www.flickr.com/services/feeds/photos_public.gne?tags=large-format");
+            URL url = new URL("https://www.flickr.com/services/feeds/photos_public.gne?tags=velvia");
             //            URI uri = url.toURI();
             //            System.out.println("scheme = " + uri.getScheme());
             //            System.out.println("Scheme-specific part = " + uri.getSchemeSpecificPart());
